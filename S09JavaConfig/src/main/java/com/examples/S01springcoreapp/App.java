@@ -1,5 +1,6 @@
 package com.examples.S01springcoreapp;
 
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -18,14 +19,15 @@ public class App
         System.out.println(emp);
         */
     	//bean scope- singleton,protype
-    	demo4();
+    	demo1();
     }
 
 	private static void demo1() {
-		ClassPathXmlApplicationContext cnt=new ClassPathXmlApplicationContext("com\\examples\\S01springcoreapp\\springconfig.xml");
-    	Employee emp=(Employee) cnt.getBean("emp2");
+		//ClassPathXmlApplicationContext cnt=new ClassPathXmlApplicationContext("com\\examples\\S01springcoreapp\\springconfig.xml");
+    	AnnotationConfigApplicationContext cnt=new AnnotationConfigApplicationContext(SpringConfig.class);
+		Employee emp=(Employee) cnt.getBean("emp2");
     	System.out.println(emp);
-    	Employee emp2=(Employee) cnt.getBean("emp");
+    	Employee emp2=(Employee) cnt.getBean("emp1");
     	System.out.println(emp2);
     	Employee emp3=(Employee) cnt.getBean("emp3");
     	System.out.println(emp3);
@@ -37,8 +39,7 @@ public class App
     	System.out.println(emp6);
     	Employee emp7=(Employee) cnt.getBean("emp7");
     	System.out.println(emp7);
-    	shoppingcart emp8=(shoppingcart) cnt.getBean("emp8");
-    	System.out.println(emp8);
+    	
 	}
 	private static void demo2() {
 		ClassPathXmlApplicationContext cnt=new ClassPathXmlApplicationContext("com\\examples\\S01springcoreapp\\springconfig2.xml");

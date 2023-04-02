@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:p="http://www.springframework.org/schema/p"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans.xsd
+   http://www.springframework.org/schema/context
+   http://www.springframework.org/schema/context/spring-context.xsd">
+
+ 
+ 
+
+<bean name="emp5" class="com.examples.S01springcoreapp.Employee" p:id="06" p:name="johnathan">
+<property name="departments">
+<list>
+<value>HR</value>
+<value>Admin</value></list>
+</property>
+<property name="products">
+<map>
+<entry key="100" value="laptop"/>
+<entry key="300" value="mobile"/>
+</map>
+</property>
+</bean>
+ <bean name="emp6" class="com.examples.S01springcoreapp.Employee" p:id="07" p:name="amy">
+<property name="countrylang">
+<props>
+<prop key="USA">English</prop>
+<prop key="India">Hindi</prop></props>
+</property>
+</bean>
+<bean name="address1" class="com.examples.S01springcoreapp.Address" p:city="mysore" p:state="karnataka" p:pincode="570023">
+</bean>
+<bean name="emp7" class="com.examples.S01springcoreapp.Employee" p:id="08" p:name="sowmya">
+<property name="address">
+<ref bean="address1"/>
+</property>
+</bean>
+<bean name="i" class="com.examples.S01springcoreapp.item" p:id="60" p:name="mob" p:price="5700" p:quantity="5">
+</bean>
+<bean name="emp8" class="com.examples.S01springcoreapp.shoppingcart">
+<property name="i">
+<ref bean="i"/>
+</property>
+</bean>
+
+
+
+</beans>
